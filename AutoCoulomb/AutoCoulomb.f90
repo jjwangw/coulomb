@@ -299,8 +299,8 @@ call StressTensor2StressArray(stressout,stress)
   do k=1,6
     sum_stress(k)=sum_stress(k)+stress(k)
   enddo
-  disp(1)=disp(1)+UX
-  disp(2)=disp(2)+UY
+  disp(1)=disp(1)+cos(strike)*UX+sin(strike)*UY
+  disp(2)=disp(2)+sin(strike)*UX-cos(strike)*UY
   disp(3)=disp(3)+UZ
 enddo !end of loop for source faults j
 write(12,1007)(sum_stress(k)*1.0d-3,k=1,6) !note that as the unit of slip is meter and the unit of length is kilometer, the unit of strain should be 1.0e-3.
